@@ -1,0 +1,36 @@
+<%= form_with model: @signup_form, url: signup_path, local: true do |f| %>
+  <p class="text-xl">企業情報</p>
+  <%= render 'shared/error_messages', object: f.object.company %>
+  <%= f.fields_for :company do |ff| %>
+    <div class="form-control">
+      <%= ff.label :name, class:'label-text' %>
+      <%= ff.text_field :name, class:"input input-bordered w-full max-w-xs" %>
+    </div>
+    <div class="form-control">
+      <%= ff.label :address, class:'label-text' %>
+      <%= ff.text_field :address, class:"input input-bordered w-full max-w-xs" %>
+    </div>
+  <% end %>
+
+  <p class="text-xl">ユーザー情報</p>
+  <%= render 'shared/error_messages', object: f.object.user %>
+  <%= f.fields_for :user do |ff| %>
+    <div class="form-control">
+      <%= ff.label :name, class:'label-text' %>
+      <%= ff.text_field :name, class:"input input-bordered w-full max-w-xs" %>
+    </div>
+    <div class="form-control">
+      <%= ff.label :email, class:'label-text' %>
+      <%= ff.email_field :email, class:"input input-bordered w-full max-w-xs" %>
+    </div>
+    <div class="form-control">
+      <%= ff.label :password, class:'label-text' %>
+      <%= ff.password_field :password, class:"input input-bordered w-full max-w-xs" %>
+    </div>
+    <div class="form-control">
+      <%= ff.label :password_confirmation, class:'label-text' %>
+      <%= ff.password_field :password_confirmation, class:"input input-bordered w-full max-w-xs" %>
+    </div>
+  <% end %>
+  <%= f.submit  class:"btn btn-primary" %>
+<% end %>
