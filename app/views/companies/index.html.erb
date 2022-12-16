@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>企業名</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= company.id %></td>
+        <td><%= company.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
